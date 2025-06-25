@@ -1,6 +1,15 @@
-"use client"
+"use client";
 
-import { Heart, Star, Zap, Shield, Globe, Rocket, Diamond, Crown } from "lucide-react"
+import {
+  Heart,
+  Star,
+  Zap,
+  Shield,
+  Globe,
+  Rocket,
+  Diamond,
+  Crown,
+} from "lucide-react";
 
 export default function Component() {
   const icons = [
@@ -12,7 +21,7 @@ export default function Component() {
     { Icon: Rocket, color: "text-orange-500" },
     { Icon: Diamond, color: "text-pink-500" },
     { Icon: Crown, color: "text-indigo-500" },
-  ]
+  ];
 
   return (
     <div className="flex items-center justify-center min-h-screen ">
@@ -25,9 +34,9 @@ export default function Component() {
         {/* Revolving Icons Container */}
         <div className="absolute inset-0 animate-spin">
           {icons.map((item, index) => {
-            const { Icon, color } = item
-            const angle = (360 / icons.length) * index
-            const radius = 120 // Distance from center
+            const { Icon, color } = item;
+            const angle = (360 / icons.length) * index;
+            const radius = 120; // Distance from center
 
             return (
               <div
@@ -41,7 +50,7 @@ export default function Component() {
               >
                 <Icon className={`w-6 h-6 ${color}`} />
               </div>
-            )
+            );
           })}
         </div>
 
@@ -49,5 +58,5 @@ export default function Component() {
         <div className="absolute inset-0 w-64 h-64 border border-dashed border-slate-300 rounded-full opacity-30 -translate-x-16 -translate-y-16"></div>
       </div>
     </div>
-  )
+  );
 }
