@@ -12,26 +12,26 @@ const Projects = () => {
     {
       id: 1,
       project_name: "html 5",
-      detail:
+      project_detail:
         "Starting of my programming carrer with HTM was both fun an tasking but the challenge was worthwhile",
       project_image: "/images/me.jpg",
     },
     {
       id: 2,
       project_name: "css 3",
-      detail: "This is css 3",
+      project_detail: "This is css 3",
       project_image: "/images/me.jpg",
     },
     {
       id: 3,
       project_name: "javascript",
-      detail: "This is javascript",
+      project_detail: "This is javascript",
       project_image: "/images/me.jpg",
     },
     {
       id: 4,
       project_name: "jquery",
-      detail: "This is jquery",
+      project_detail: "This is jquery",
       project_image: "/images/me.jpg",
     },
   ];
@@ -71,7 +71,7 @@ const Projects = () => {
             />
           </div>
           <div className="p-5">
-            <ProjectInfo info={projectInfo} activeIndex={activeIndex} />
+            <ProjectInfo projectInfo={projectInfo} activeIndex={activeIndex} />
           </div>
         </motion.div>
       </div>

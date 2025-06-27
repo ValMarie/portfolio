@@ -178,6 +178,15 @@ const config = {
             transform: "rotate(360deg)",
           },
         },
+
+        // "reverse-spin": {
+        //   from: {
+        //     transform: "rotate(0deg)",
+        //   },
+        //   to: {
+        //     transform: "rotate(-360deg)",
+        //   },
+        // },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -192,7 +201,8 @@ const config = {
         scroll:
           "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
         flipX: "flipX 1s linear forwards",
-        spin: "spin-slow 10s linear infinite",
+        spin: "spin-slow 16s linear infinite",
+        reverse: "spin-slow 16s linear infinite reverse",
       },
     },
   },

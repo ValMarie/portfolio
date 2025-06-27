@@ -1,5 +1,5 @@
 import React from 'react';
-import { CardContainer, CardBody, CardItem } from '../ui/Cards';
+import { CardContainer, CardBody, CardItem } from '../assets/cards';
 
 const Card = () => {
   return (
