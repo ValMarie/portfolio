@@ -1,12 +1,8 @@
 import type { Config } from "tailwindcss";
 import tailwindcssAnimate from "tailwindcss-animate";
-import Colors from "tailwindcss/colors";
-import SvgToDataUri from "mini-svg-data-uri";
-import FlattenColorPalette from "tailwindcss/lib/util/flattenColorPalette";
-
-const svgToDataUri = SvgToDataUri;
-const colors = Colors;
-const flattenColorPalette = FlattenColorPalette;
+import colors from "tailwindcss/colors";
+import svgToDataUri from "mini-svg-data-uri";
+import flattenColorPalette from "tailwindcss/lib/util/flattenColorPalette";
 
 function addVariablesForColors({ addBase, theme }: any) {
   const allColors = flattenColorPalette(theme("colors"));
@@ -178,15 +174,6 @@ const config = {
             transform: "rotate(360deg)",
           },
         },
-
-        // "reverse-spin": {
-        //   from: {
-        //     transform: "rotate(0deg)",
-        //   },
-        //   to: {
-        //     transform: "rotate(-360deg)",
-        //   },
-        // },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -222,6 +209,13 @@ const config = {
         { values: flattenColorPalette(theme("backgroundColor")), type: "color" }
       );
     },
+  ],
+  safelist: [
+    'bg-clip-text',
+    'text-transparent',
+    'bg-gradient-to-r',
+    'from-blue-700',
+    'to-gray-500',
   ],
 } satisfies Config;
 

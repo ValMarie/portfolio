@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 
 const Navigation = () => {
@@ -16,10 +16,13 @@ const Navigation = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           <motion.div
-            className="text-2xl font-bold bg-gradient-to-r from-blue-700 to-gray-500 bg-clip-text text-transparent"
+            className="text-2xl font-bold"
             whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.98 }}
           >
-            Valentine-Marie Umeh
+            <span className="inline-block bg-gradient-to-r from-blue-700 to-gray-500 bg-clip-text text-transparent">
+              Valentine-Marie Umeh
+            </span>
           </motion.div>
 
           {/* Desktop Navigation */}
@@ -48,27 +51,30 @@ const Navigation = () => {
       </div>
 
       {/* Mobile Menu */}
-      {isMenuOpen && (
-        <motion.div
-          className="md:hidden bg-transparent/80 backdrop-blur-md"
-          initial={{ opacity: 0, height: 0 }}
-          animate={{ opacity: 1, height: "auto" }}
-          exit={{ opacity: 0, height: 0 }}
-        >
-          <div className="px-4 py-4 space-y-4">
-            {["About", "Skills", "Projects", "Contact"].map((item) => (
-              <a
-                key={item}
-                href={`#${item.toLowerCase()}`}
-                className="block text-gray-300 hover:text-white transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {item}
-              </a>
-            ))}
-          </div>
-        </motion.div>
-      )}
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            className="md:hidden fixed top-16 left-0 w-full bg-transparent/90 backdrop-blur-md z-40 shadow-lg"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.25 }}
+          >
+            <div className="flex flex-col px-6 py-6 space-y-6">
+              {["About", "Skills", "Projects", "Contact"].map((item) => (
+                <a
+                  key={item}
+                  href={`#${item.toLowerCase()}`}
+                  className="text-lg text-gray-300 hover:text-white transition-colors py-2"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {item}
+                </a>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.nav>
   );
 };

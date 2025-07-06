@@ -3,45 +3,22 @@
 import { useState } from "react";
 import ImageSlider from "../ui/Slider";
 import { motion } from "framer-motion";
+import { ProjectsData } from "../assets/data";
 import { ProjectInfo } from "../assets/info";
 
 const Projects = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
-  const projectInfo = [
-    {
-      id: 1,
-      project_name: "html 5",
-      project_detail:
-        "Starting of my programming carrer with HTM was both fun an tasking but the challenge was worthwhile",
-      project_image: "/images/me.jpg",
-    },
-    {
-      id: 2,
-      project_name: "css 3",
-      project_detail: "This is css 3",
-      project_image: "/images/me.jpg",
-    },
-    {
-      id: 3,
-      project_name: "javascript",
-      project_detail: "This is javascript",
-      project_image: "/images/me.jpg",
-    },
-    {
-      id: 4,
-      project_name: "jquery",
-      project_detail: "This is jquery",
-      project_image: "/images/me.jpg",
-    },
-  ];
+ 
 
   // Create images array for ImageSlider
-  const projectImages = projectInfo.map((project) => ({
+  const projectImages = ProjectsData.map((project) => ({
     src: project.project_image,
     alt: project.project_name,
     key: project.id,
   }));
+
+
 
   return (
     <section id="projects" className="py-24 px-4">
@@ -71,7 +48,7 @@ const Projects = () => {
             />
           </div>
           <div className="p-5">
-            <ProjectInfo projectInfo={projectInfo} activeIndex={activeIndex} />
+            <ProjectInfo projectInfo={ProjectsData} activeIndex={activeIndex} />
           </div>
         </motion.div>
       </div>

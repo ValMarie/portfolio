@@ -4,7 +4,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 // import { useMouseEnter } from "./ui/useMouseEnter";
 import About from "./about";
 import Projects from "./projects";
-import Achievements from "./achievements";
+import Skills from "./skills";
 
 const Section = () => {
   const { scrollYProgress } = useScroll();
@@ -31,7 +31,7 @@ const Section = () => {
 
       <motion.div className="">
         {" "}
-        <Achievements />
+        <Skills />
       </motion.div>
       <motion.div className="">
         {" "}

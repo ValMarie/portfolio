@@ -1,43 +1,50 @@
 "use client";
 
-import { StackIcons } from "../assets/stack";
+import { Stack } from "../assets/data";
 
-export default function Component() {
-  const icons = StackIcons;
+type RevolvingIconsProps = {
+  activeIndex: number;
+  setActiveIndex: (index: number) => void;
+};
+
+export const RevolvingIcons = ({
+  activeIndex,
+  setActiveIndex,
+}: RevolvingIconsProps) => {
+  const icons = Stack.map((item) => item.skill_icon);
+
+  // Responsive radius: 20vw, but clamp between 80px and 200px for usability
+  const radius = "clamp(80px, 20vw, 200px)";
+  if (!icons.length) return null; // Prevent rendering if no icons
 
   return (
-    <div className="flex items-center justify-center min-h-screen ">
-      <div className="relative">
-        {/* Central Circle */}
-        <div className="w-40 h-40 bg-transparent rounded-full shadow-2xl flex items-center justify-center z-10 relative">
-          <div className="text-white font-semibold text-lg">Center</div>
-        </div>
+    <div className="absolute inset-0 animate-spin">
+      {icons.map((Icon, index) => {
+        const angle = (360 / icons.length) * index;
 
-        {/* Revolving Icons Container */}
-        <div className="absolute inset-0 animate-spin">
-          {icons.map((item, index) => {
-            const Icon = item;
-            const angle = (360 / icons.length) * index;
-            const radius = 160; // Distance from center
-
-            return (
-              <div
-                key={index}
-                className="absolute flex items-center justify-center"
-                style={{
-                  top: "50%",
-                  left: "50%",
-                  transform: `translate(-50%, -50%) rotate(${angle}deg) translateY(-${radius}px) rotate(-${angle}deg)`,
-                }}
-              >
-                <div className="animate-reverse justify-center rounded-full shadow-lg w-12 h-12">
-                  {Icon}
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      </div>
+        return (
+          <div
+            key={index}
+            className="absolute flex items-center justify-center"
+            style={{
+              top: "50%",
+              left: "50%",
+              transform: `translate(-50%, -50%) rotate(${angle}deg) translateY(${radius}) rotate(-${angle}deg)`,
+              transition: "transform 0.3s ease-in-out",
+              zIndex: activeIndex === index ? 20 : 10,
+            }}
+          >
+            <button
+              className={`animate-reverse justify-center rounded-full shadow-lg w-6 h-6 ${
+                activeIndex === index ? "ring-4  shadow-blue-500/[0.2] scale-125" : "hover:scale-110"
+              }`}
+              onMouseEnter={() => setActiveIndex(index)}
+            >
+              {Icon}
+            </button>
+          </div>
+        );
+      })}
     </div>
   );
-}
+};
