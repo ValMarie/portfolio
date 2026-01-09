@@ -1,4 +1,5 @@
 "use client";
+
 import type { ReactNode, InputHTMLAttributes, TextareaHTMLAttributes } from "react";
 
 type Project = {
@@ -36,6 +37,6 @@ type ProjectInfoProps = {
 
 
 
-// export type InputProps = InputHTMLAttributes<HTMLInputElement>;
+export type InputProps = InputHTMLAttributes<HTMLInputElement>;
 
-// export type TextareaProps = TextareaHTMLAttributes<HTMLTextAreaElement>;
+export type TextareaProps = TextareaHTMLAttributes<HTMLTextAreaElement>;
