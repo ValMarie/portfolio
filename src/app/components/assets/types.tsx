@@ -6,14 +6,14 @@ type Project = {
   id?: string;
   project_name?: string;
   project_detail?: string;
-  project_image?: React.ReactNode | string;
+  project_image?:ReactNode | string;
 };
 
 type Skill = {
   // id?: string;
   skill_name?: string;
   skill_detail?: string;
-  skill_icon?: React.ReactNode | string;
+  skill_icon?:ReactNode | string;
   skill_proficiency: number;
 };
 
@@ -29,8 +29,7 @@ export type SkillInfoProps = {
   skillInfo: Skill[];
   activeIndex: number;
 };
-
-type ProjectInfoProps = {
+export type ProjectInfoProps = {
   projectInfo: Project[];
   activeIndex: number;
 };
