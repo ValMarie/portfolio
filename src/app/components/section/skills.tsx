@@ -1,11 +1,11 @@
 "use client";
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import {RevolvingIcons} from "../ui/RevolvingIcons";
+import { RevolvingIcons } from "../ui/RevolvingIcons";
 import { Stack } from "../assets/data";
 import { SkillInfo } from "../assets/info";
 
-const Skills = () => {    
+const Skills = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const skillInfo = Stack.map((item) => ({
@@ -27,12 +27,12 @@ const Skills = () => {
           viewport={{ once: true }}
           className="max-w-6xl mx-auto"
         >
-         <motion.div className="text-center mb-10 md:mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 md:mb-6">
-            Skills and Technologies
-          </h2>
-          <div className="w-16 md:w-20 h-1 bg-gradient-to-r from-blue-700 to-white/50 mx-auto mb-6 md:mb-8"></div>
-        </motion.div>
+          <motion.div className="text-center mb-10 md:mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 md:mb-6">
+              Skills and Technologies
+            </h2>
+            <div className="w-16 md:w-20 h-1 bg-gradient-to-r from-blue-700 to-white/50 mx-auto mb-6 md:mb-8"></div>
+          </motion.div>
         </motion.div>
 
         <motion.div
@@ -45,7 +45,7 @@ const Skills = () => {
           {/* Central Circle */}
           <div className="w-40 h-40 bg-transparent rounded-full shadow-3xl flex items-center justify-center z-10 relative mx-auto mb-8 md:mb-0">
             <div className="w-full h-full absolute inset-0 flex items-center justify-center">
-                {skillInfo[activeIndex]?.skill_icon}
+              {skillInfo[activeIndex]?.skill_icon}
             </div>
 
             {/* Revolving Icons Container */}
@@ -59,40 +59,7 @@ const Skills = () => {
           <div className="flex justify-center">
             <SkillInfo skillInfo={skillInfo} activeIndex={activeIndex} />
           </div>
-
-           
         </motion.div>
-
-        {/* <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {skills.map((skill, index) => (
-            <motion.div
-              key={skill.name}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              whileHover={{ scale: 1.05 }}
-              className="bg-gray-900/50 backdrop-blur-sm rounded-lg p-6 border border-gray-700"
-            >
-              <div className="flex items-center mb-4">
-                <span className="text-3xl mr-3">{skill.icon}</span>
-                <h3 className="text-xl font-semibold">{skill.name}</h3>
-              </div>
-              <div className="w-full bg-gray-700 rounded-full h-2">
-                <motion.div
-                  className="bg-gradient-to-r from-blue-700 to-white/50  h-2 rounded-full"
-                  initial={{ width: 0 }}
-                  whileInView={{ width: `${skill.level}%` }}
-                  transition={{ duration: 1, delay: 0.5 }}
-                  viewport={{ once: true }}
-                />
-              </div>
-              <p className="text-sm text-gray-400 mt-2">
-                {skill.level}% proficiency
-              </p>
-            </motion.div>
-          ))}
-        </div> */}
       </section>
     </div>
   );
